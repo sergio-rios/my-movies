@@ -1,6 +1,7 @@
 package daw.sergiorios.mispeliculas;
 
 import android.content.DialogInterface;
+import android.icu.text.LocaleDisplayNames;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -97,8 +98,12 @@ public class PeliculaActivity extends AppCompatActivity {
         etAnio.setText(anio);
         rbValoracion.setRating(Float.parseFloat(valoracion));
         etSinopsis.setText(sinopsis);
-        cbVista.setChecked(Boolean.parseBoolean(vista));
         etImagen.setText(imagen);
+
+        if (vista.equals("1")) {
+            cbVista.setChecked(true);
+        }
+        Log.d("vista", vista);
     }
 
     public void manejarDatos(View v) {
