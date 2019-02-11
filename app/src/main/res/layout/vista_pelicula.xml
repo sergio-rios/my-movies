@@ -171,39 +171,11 @@
                     android:id="@+id/etSinopsis"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="32dp"
                     android:ems="10"
                     android:inputType="textMultiLine|textCapSentences"
                     android:text="Sinopsis"
                     android:textSize="14sp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginEnd="32dp"
-                    android:orientation="horizontal"
-                    android:paddingTop="20dp">
-
-                    <Button
-                        android:id="@+id/btnBorrar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_weight="1"
-                        android:onClick="manejarDatos"
-                        android:text="borrar" />
-
-                    <Button
-                        android:id="@+id/btnGuardar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:layout_weight="1"
-                        android:onClick="manejarDatos"
-                        android:text="guardar" />
-
-                </LinearLayout>
 
             </LinearLayout>
         </LinearLayout>
