@@ -24,7 +24,7 @@ public abstract class DataBaseManager {
 
     abstract public void eliminarTodo();
 
-    abstract public Cursor cargarCursor();
+    abstract public Cursor cargarCursor(String order);
 
     abstract Boolean compruebaRegistro(String id);
 

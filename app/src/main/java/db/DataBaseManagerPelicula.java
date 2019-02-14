@@ -102,10 +102,10 @@ public class DataBaseManagerPelicula extends DataBaseManager {
     }
 
     @Override
-    public Cursor cargarCursor() {
+    public Cursor cargarCursor(String order) {
         String [] columnas = new String[] {ID, TITULO, DIRECTOR, PRODUCTORA, DURACION, ANIO, VALORACION, SINOPSIS, VISTA, IMG};
 
-        return super.getDb().query(NOMBRE_TABLA, columnas, null, null, null, null, TITULO);
+        return super.getDb().query(NOMBRE_TABLA, columnas, null, null, null, null, order);
     }
 
     @Override
@@ -120,10 +120,10 @@ public class DataBaseManagerPelicula extends DataBaseManager {
         return existe;
     }
 
-    public List<Pelicula> getListaPeliculas() {
+    public List<Pelicula> getListaPeliculas(String order) {
         List<Pelicula> listaPeliculas = new ArrayList<>();
 
-        Cursor c = cargarCursor();
+        Cursor c = cargarCursor(order);
 
         while (c.moveToNext()) {
             Pelicula pelicula = new Pelicula();
