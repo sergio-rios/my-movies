@@ -60,9 +60,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onResume(){
-        super.onResume();
+    public void onRestart(){
+        super.onRestart();
         recargarRecycler("titulo ASC");
+        OrdenarTitulo();
         Log.d("RESUME", "Resume");
     }
 
@@ -124,39 +125,76 @@ public class MainActivity extends AppCompatActivity {
         item.setTitle(texto);
 
         recargarRecycler(orden);
+        ResetOrdenar("titulo");
     }
 
     private void OrdenarDuracion() {
         asc_duracion = !asc_duracion;
-        String orden = asc_duracion ? "duracion ASC" : "duracion DESC";
-        String texto = asc_titulo ? "Duración ↓" : "Duración ↑";
+        String orden = asc_duracion ? "duracion DESC" : "duracion ASC";
+        String texto = asc_duracion ? "Duración ↓" : "Duración ↑";
 
         MenuItem item = menuOpciones.findItem(R.id.duracion);
         item.setTitle(texto);
 
         recargarRecycler(orden);
+        ResetOrdenar("duracion");
     }
 
     private void OrdenarAnio() {
         asc_anio = !asc_anio;
-        String orden = asc_anio ? "anio ASC" : "anio DESC";
-        String texto = asc_titulo ? "Año ↓" : "Año ↑";
+        String orden = asc_anio ? "anio DESC" : "anio ASC";
+        String texto = asc_anio ? "Año ↓" : "Año ↑";
 
         MenuItem item = menuOpciones.findItem(R.id.anio);
         item.setTitle(texto);
 
         recargarRecycler(orden);
+        ResetOrdenar("anio");
     }
 
     private void OrdenarValoracion() {
         asc_valoracion = !asc_valoracion;
-        String orden = asc_valoracion ? "valoracion ASC" : "valoracion DESC";
-        String texto = asc_titulo ? "Valoración ↓" : "Valoración ↑";
+        String orden = asc_valoracion ? "valoracion DESC" : "valoracion ASC";
+        String texto = asc_valoracion ? "Valoración ↓" : "Valoración ↑";
 
         MenuItem item = menuOpciones.findItem(R.id.valoracion);
         item.setTitle(texto);
 
         recargarRecycler(orden);
+        ResetOrdenar("valoracion");
+    }
+
+    private void ResetOrdenar(String no_actualizar) {
+        String texto;
+        MenuItem item;
+
+        if (!no_actualizar.equals("titulo")) {
+            asc_titulo = false;
+            texto = "Titulo ↑";
+            item = menuOpciones.findItem(R.id.titulo);
+            item.setTitle(texto);
+        }
+
+        if (!no_actualizar.equals("duracion")) {
+            asc_duracion = false;
+            texto = "Duración ↑";
+            item = menuOpciones.findItem(R.id.duracion);
+            item.setTitle(texto);
+        }
+
+        if (!no_actualizar.equals("anio")) {
+            asc_anio = false;
+            texto = "Año ↑";
+            item = menuOpciones.findItem(R.id.anio);
+            item.setTitle(texto);
+        }
+
+        if (!no_actualizar.equals("valoracion")) {
+            asc_valoracion = false;
+            texto = "Valoración ↑";
+            item = menuOpciones.findItem(R.id.valoracion);
+            item.setTitle(texto);
+        }
     }
 
 
