@@ -144,4 +144,10 @@ public class DataBaseManagerPelicula extends DataBaseManager {
 
         return listaPeliculas;
     }
+
+    public int count() {
+        List<Pelicula> peliculas = getListaPeliculas("titulo");
+
+        return peliculas.size();
+    }
 }

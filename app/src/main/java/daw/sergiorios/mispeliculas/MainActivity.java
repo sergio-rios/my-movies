@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         managerPelicula = new DataBaseManagerPelicula(this);
         listaPeliculas = managerPelicula.getListaPeliculas("titulo ASC");
         inicializarRecycler();
+        valoresDefecto();
         recargarRecycler("titulo ASC");
     }
 
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
     public void onRestart(){
         super.onRestart();
         recargarRecycler("titulo ASC");
+        asc_titulo = false;
         OrdenarTitulo();
         Log.d("RESUME", "Resume");
     }
@@ -245,5 +247,17 @@ public class MainActivity extends AppCompatActivity {
                 .setNegativeButton("Cancelar", null);
 
         return builder.create();
+    }
+
+    private void valoresDefecto() {
+        Log.d("NA", "hola");
+        if (managerPelicula.count() == 0) {
+            Log.d("NA", "De na");
+            managerPelicula.insertar(null, "Coherence", "James Ward", "Bellanova Films / Ugly Duckling Films", "89", "2013", "3.5", "En Finlandia, en 1923, el paso de un cometa hizo que los habitantes de un pueblo quedaran completamente desorientados; incluso una mujer llegó a llamar a la policía denunciando que el hombre que estaba en su casa no era su marido. Décadas más tarde, un grupo de amigos recuerda este caso mientras cenan, brindan y se preparan para ver pasar un cometa... ", "1", "https://www.culturamas.es/wp-content/uploads/2014/10/coherence1.jpg");
+            managerPelicula.insertar(null, "Mystic River", "Clint Eastwood", "Warner Bros", "137", "2003", "4", "Cuando Jimmy Markum (Sean Penn), Dave Boyle (Tim Robbins) y Sean Devine (Kevin Bacon) eran unos niños que crecían juntos en un peligroso barrio obrero de Boston, pasaban los días jugando al hockey en la calle. Pero, un día, a Dave le ocurrió algo que marcó para siempre su vida y la de sus amigos. Veinticinco años más tarde, otra tragedia los vuelve a unir: el asesinato de Katie (Emmy Rossum), la hija de 19 años de Jimmy. A Sean, que es policía, le asignan el caso; pero también tiene que estar muy pendiente de Jimmy porque, en su desesperación, está intentando tomarse la justicia por su mano.", "1", "https://www.eldiario.es/fotos/Cartel-Mystic-River_EDIIMA20180926_0835_5.jpg");
+            managerPelicula.insertar(null, "Reservoir Dogs", "Quentin Tarantino", "Live Entertainment / Dog Eat Dog Productions", "99", "1992", "4", "Una banda organizada es contratada para atracar una empresa y llevarse unos diamantes. Sin embargo, antes de que suene la alarma, la policía ya está allí. Algunos miembros de la banda mueren en el enfrentamiento con las fuerzas del orden, y los demás se reúnen en el lugar convenido.", "1", "https://www.ecartelera.com/carteles/4300/4308/001.jpg");
+            managerPelicula.insertar(null, "El hombre que conocía el infinito", "Matt Brown", "", "114", "2015", "0", "Narra la historia de Srinivasa Ramanujan, un matemático indio que hizo importantes contribuciones al mundo de las matemáticas como la teoría de los números, las series y las fracciones continuas. Con su arduo trabajo, Srinivasa consiguió entrar en la Universidad de Cambridge durante la Primera Guerra Mundial, donde continuó trabajando en sus teorías con la ayuda del profesor británico G. H. Hardy, a pesar de todos los impedimentos que su origen indio suponían para los estándares sociales de aquella época.", "0", "https://images-na.ssl-images-amazon.com/images/I/A1X%2Bu9vdXtL._SY445_.jpg");
+            managerPelicula.insertar(null, "Exam", "Stuart Hazeldine", "", "101", "2009", "2.5", "Cinta de tensión psicológica que nos sitúa en un escenario opresivo donde un grupo de candidatos competirán por hacerse con un jugoso puesto de trabajo. Las reglas son simples: nada de preguntas, nada de salir de la habitación y, por último, nada de estropear el folio del examen (un folio que, por otra parte, está en blanco). Tienen 80 minutos...", "1", "https://i.pinimg.com/originals/51/4c/5a/514c5a319028efeb3836933dc996f040.jpg");
+        }
     }
 }
